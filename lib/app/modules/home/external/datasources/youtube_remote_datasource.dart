@@ -16,7 +16,7 @@ class YoutubeRemoteDatasource implements YoutubeDatasource {
         'key': ConstantsApiUrls.apiKey,
         'part': 'snippet',
         //TODO: TROCAR A PLAYLIST
-        'playlistId': 'PLlBnICoI-g-d-v_fWlkZX2HRgHHPnJx9s',
+        'playlistId': 'PLlBnICoI-g-cW2_yx2C7kNYOum-9frtPJ',
         'maxResults': 8,
       },
     );

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:timeago/timeago.dart' as timeago;
+import 'package:transparent_image/transparent_image.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import 'package:flutterando/app/modules/home/domain/entities/result_youtube.dart';
 import 'package:flutterando/app/modules/home/widgets/latest_channel_videos/latest_channel_videos_store.dart';
 import 'package:flutterando/app/utils/colors/colors.dart';
 import 'package:flutterando/app/utils/screen/screen_size.dart';
 import 'package:flutterando/app/utils/text_styles/text_styles.dart';
-import 'package:intl/intl.dart';
-import 'package:transparent_image/transparent_image.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ChannelVideoTile extends StatefulWidget {
   final ResultYoutube video;
@@ -90,10 +91,14 @@ class _ChannelVideoTileState extends State<ChannelVideoTile> {
                       horizontal: constraints.maxWidth / 20),
                   width: constraints.maxWidth - 7,
                   child: SelectableText(
-                    DateFormat('dd-MM-yyyy').format(
+                    timeago.format(
                       DateTime.parse(widget.video.date),
+                      locale: 'pt_br',
                     ),
-                    style: TextStyles.roboto(18, fontWeight: FontWeight.bold),
+                    style: TextStyles.roboto(
+                      18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ],
