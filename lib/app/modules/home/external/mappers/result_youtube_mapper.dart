@@ -8,7 +8,7 @@ class ResultYoutubeMapper {
       'imgUrl': resultYoutube.imgUrl,
       'title': resultYoutube.title,
       'linkUrl': resultYoutube.linkUrl,
-      'date': resultYoutube.date.toString(),
+      'date': resultYoutube.date
     };
   }
 
@@ -16,7 +16,8 @@ class ResultYoutubeMapper {
     return ResultYoutube(
       imgUrl: map['snippet']['thumbnails']['high']['url'] ?? '',
       title: map['snippet']['title'] ?? '',
-      linkUrl: 'https://www.youtube.com/watch?v=${map['id']['videoId']}',
+      linkUrl:
+          'https://www.youtube.com/watch?v=${map['snippet']['resourceId']['videoId']}',
       date: map['snippet']['publishedAt'] ?? '',
     );
   }
